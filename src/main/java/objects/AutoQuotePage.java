@@ -1,15 +1,17 @@
-package sfarm.bdd.objects;
-
-import static sfarm.bdd.common.CommonActions.*;
+package objects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import common.CommonActions;
 public class AutoQuotePage {
 	
+	CommonActions ca;
 	public AutoQuotePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		ca = new CommonActions(driver);
 	}
 	
 	@FindBy(css = "h1.-oneX-heading--h1.-oneX-font--bold.margin0")
@@ -28,48 +30,39 @@ public class AutoQuotePage {
 	WebElement checkBox;
 	@FindBy(name = "nextVehicles")
 	WebElement nextVehiclesBtn;
-	
-	//public void verifyAboutYouPageTitle(String expectedTitle) {
-	//	validate(autoAboutYouPageTitle, expectedTitle);
-	//}
 
 
 	public void validateHomePageTitle(String expectedTitle){
-		validate(addressPagetittle, expectedTitle);
+		ca.validate(addressPagetittle, expectedTitle);
 
 	}
 
 	public void insertFirstName(String firstName) {
-		insert(firstNameInput, firstName);
+		ca.insert(firstNameInput, firstName);
 	}
 
 	public void insertlasttName(String lastName) {
-		insert(lastNameInput, lastName);
+		ca.insert(lastNameInput, lastName);
 	}
 	
-	public void insertAddress(String address) throws InterruptedException {
-		insert(addressInput, address);
-		Thread.sleep(3000);
+	public void insertAddress(String address) {
+		ca.insert(addressInput, address);
 	}
 	
-	public void insertAptNumber(String apt) throws InterruptedException {
-		insert(aptNumberInput, apt);
-		Thread.sleep(3000);
+	public void insertAptNumber(String apt) {
+		ca.insert(aptNumberInput, apt);
 	}
 	
-	public void insertDOB(String dob) throws InterruptedException {
-		insert(dateOfBirthInput, dob);
-		Thread.sleep(3000);
+	public void insertDOB(String dob) {
+		ca.insert(dateOfBirthInput, dob);
 	}
 	
-	public void clickCheckBox() throws InterruptedException {
-		click(checkBox);
-		Thread.sleep(3000);
+	public void clickCheckBox() {
+		ca.click(checkBox);
 	}
 	
-	public void clicknextVehiclesBtn() throws InterruptedException {
-		click(nextVehiclesBtn);
-		Thread.sleep(3000);
+	public void clicknextVehiclesBtn() {
+		ca.click(nextVehiclesBtn);
 	}
 
 }

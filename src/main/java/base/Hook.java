@@ -1,11 +1,11 @@
-package sfarm.bdd.base;
+package base;
 
 
-import static sfarm.bdd.utils.IConstant.*;
+import static utils.IConstant.*;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import sfarm.bdd.utils.ReadProperties;
+import utils.ReadProperties;
 
 public class Hook {
 	BaseClass baseClass;

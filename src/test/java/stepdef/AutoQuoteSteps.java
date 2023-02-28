@@ -1,46 +1,30 @@
 package stepdef;
 
+import base.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AutoQuoteSteps {
+public class AutoQuoteSteps extends BaseClass {
 
-	@Given("validate home page title")
-	public void validate_home_page_title() {
-
+	@When("click start a quote")
+	public void click_start_a_quote() {
+		addressPage.clickStartAQuote();
+	}
+	
+	@Then("click continue01 button")
+	public void click_continue01_button() {
+		addressPage.clickContinueBtn();
 	}
 
-	@Given("dropdown {string}")
-	public void dropdown(String string) {
+	@When("insert first name {string}")
+	public void insert_first_name(String firstName) {
+		autoQuotePage.insertFirstName(firstName);
 	}
 
-	@When("insert zipcode {string}")
-	public void insert_zipcode(String string) {
-
-	}
-
-	@When("click start a quote button")
-	public void click_start_a_quote_button() {
-
-	}
-
-	@When("validate renters page title")
-	public void validate_renters_page_title() {
-
-	}
-
-	@Then("insert address {string}")
-	public void insert_address(String string) {
-	}
-
-	@Then("insert apt number input {string}")
-	public void insert_apt_number_input(String string) {
-
-	}
-
-	@Then("click continue button")
-	public void click_continue_button() {
+	@Then("insert last name {string}")
+	public void insert_last_name(String lastName) {
+		autoQuotePage.insertlasttName(lastName);
 	}
 
 }
