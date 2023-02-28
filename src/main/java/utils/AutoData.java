@@ -1,4 +1,4 @@
-package sfarm.bdd.utils;
+package utils;
 
 public class AutoData {
 	private String homePageTitle;

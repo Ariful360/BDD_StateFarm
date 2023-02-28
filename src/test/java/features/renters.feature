@@ -1,5 +1,6 @@
 Feature: Auto Quote Testing
 
+@renters
   Scenario: Create an auto quote
     Given validate home page title
     And dropdown 'Renters'

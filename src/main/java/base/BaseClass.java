@@ -1,6 +1,6 @@
-package sfarm.bdd.base;
+package base;
 
-import static sfarm.bdd.utils.IConstant.*;
+import static utils.IConstant.*;
 
 import java.time.Duration;
 
@@ -10,20 +10,21 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import common.CommonActions;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import sfarm.bdd.objects.AddressPage;
-import sfarm.bdd.objects.AutoQuotePage;
-import sfarm.bdd.objects.LandingPage;
-import sfarm.bdd.objects.RenterQuotePage;
-import sfarm.bdd.utils.ReadProperties;
+import objects.AddressPage;
+import objects.AutoQuotePage;
+import objects.LandingPage;
+import objects.RenterQuotePage;
+import utils.ReadProperties;
 
-public class BaseClass extends Hook {
-	protected WebDriver driver;
+public class BaseClass{
+	public static WebDriver driver;
 	ReadProperties envVar = new ReadProperties();
-	protected LandingPage landingPage;
-	protected AddressPage addressPage;
-	protected RenterQuotePage renterQuotePage;
-	protected AutoQuotePage autoQuotePage;
+	public static LandingPage landingPage;
+	public static AddressPage addressPage;
+	public static RenterQuotePage renterQuotePage;
+	public static AutoQuotePage autoQuotePage;
 
 	
 	public void setUpDriver(String browserName) {
@@ -43,7 +44,7 @@ public class BaseClass extends Hook {
 
 	}
 
-	private void initClasses(WebDriver driver) {
+	public void initClasses(WebDriver driver) {
 		landingPage = new LandingPage(driver);
 		addressPage = new AddressPage(driver);
 		autoQuotePage = new AutoQuotePage(driver);
@@ -51,7 +52,7 @@ public class BaseClass extends Hook {
 
 	}
 
-	private void initDriver(String driverName) {
+	public void initDriver(String driverName) {
 		switch (driverName) {
 
 		case CHROME:

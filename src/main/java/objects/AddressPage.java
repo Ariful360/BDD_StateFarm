@@ -1,15 +1,18 @@
-package sfarm.bdd.objects;
-
-import static sfarm.bdd.common.CommonActions.*;
+package objects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import common.CommonActions;
 
 public class AddressPage {
+
+	CommonActions ca;
+
 	public AddressPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		ca = new CommonActions(driver);
 	}
 
 	@FindBy(xpath = "//p[text()='Create an affordable price, just for you']")
@@ -23,28 +26,25 @@ public class AddressPage {
 	@FindBy(id = "nyLegacyCloseLinkId")
 	WebElement continueBtn;
 
-	public void validateHomePageTitle(String expectedTitle){
-		validate(homePageTitle, expectedTitle);
+	public void validateHomePageTitle(String expectedTitle) {
+		ca.validate(homePageTitle, expectedTitle);
 
 	}
 
-	public void zipCode(String zipCode) throws InterruptedException {
-		insert(zipCodeFld, zipCode);
-		Thread.sleep(2000);
+	public void zipCode(String zipCode) {
+		ca.insert(zipCodeFld, zipCode);
 	}
 
-	public void clickStartAQuote() throws InterruptedException {
+	public void clickStartAQuote() {
 		startAQuote.click();
-		Thread.sleep(2000);
 	}
 
-	public void dropdn(String value) throws InterruptedException {
-		click(dropdun);
-		select(dropdun, value);
+	public void dropdn(String value) {
+		ca.click(dropdun);
+		ca.select(dropdun, value);
 	}
 
-	public void clickContinueBtn() throws InterruptedException {
+	public void clickContinueBtn() {
 		continueBtn.click();
-		Thread.sleep(5000);
 	}
 }

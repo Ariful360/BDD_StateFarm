@@ -1,15 +1,18 @@
-package sfarm.bdd.objects;
-
-import static sfarm.bdd.common.CommonActions.*;
+package objects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import common.CommonActions;
+
 public class LandingPage {
 
+	CommonActions ca;
 	public LandingPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		ca = new CommonActions(driver);
 	}
 
 	@FindBy(xpath = "//span[text()='Log in']")
@@ -23,26 +26,21 @@ public class LandingPage {
 	@FindBy(css = "button.-oneX-util-login-button.-oneX-btn-primary.-oneX-btn-fit-content")
 	WebElement loginBtn02;
 	
-	public void clickLoginBtn() throws InterruptedException {
-		click(loginBtn);
-		Thread.sleep(3000);
+	public void clickLoginBtn() {
+		ca.click(loginBtn);
 	}
 
-	public void insertUserId(String userID) throws InterruptedException {
-		insert(userId, userID);
-		Thread.sleep(3000);
+	public void insertUserId(String userID) {
+		ca.insert(userId, userID);
 	}
-	public void insertPassword(String passWord) throws InterruptedException {
-		insert(password, passWord);
-		Thread.sleep(3000);
+	public void insertPassword(String passWord)  {
+		ca.insert(password, passWord);
 	}
-	public void clickRememberMeBox() throws InterruptedException {
-		click(rememberMeBox);
-		Thread.sleep(3000);
+	public void clickRememberMeBox() {
+		ca.click(rememberMeBox);
 	}
-	public void clickLoginBtn02() throws InterruptedException {
-		click(loginBtn02);
-		Thread.sleep(3000);
+	public void clickLoginBtn02() {
+		ca.click(loginBtn02);
 		
 	}
 
